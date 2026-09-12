@@ -16,17 +16,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: YOUR_USERNAME/cla-bot@main
+      - uses: rajnishtiwari7/cla-bot@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-          signatures-owner: YOUR_USERNAME
+          signatures-owner: rajnishtiwari7
           signatures-repo: cla-signatures
           signatures-path: signatures/cla.json
 
           app-id: ${{ secrets.CLA_APP_ID }}
           app-private-key: ${{ secrets.CLA_APP_PRIVATE_KEY }}
 
-          cla-document-url: https://github.com/YOUR_USERNAME/cla-test/blob/main/README.md
+          cla-document-url: https://github.com/rajnishtiwari7/cla-testing/blob/main/README.md
 
           allowlist: dependabot[bot]
