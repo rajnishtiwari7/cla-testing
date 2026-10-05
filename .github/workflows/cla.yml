@@ -36,5 +36,3 @@ jobs:
           app-private-key: ${{ secrets.CLA_APP_PRIVATE_KEY }}
 
           cla-document-url: https://github.com/rajnishtiwari7/cla-testing/blob/main/README.md
-
-          allowlist: dependabot[bot]
