@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened, closed]
 
 permissions:
-  pull-requests: read
+  pull-requests: write
   issues: write
   statuses: write
 
@@ -20,27 +20,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run CLA bot
-        # Testing ke liye @main theek hai.
-        # Stable hone ke baad tagged release use karo (e.g. fossasia/cla-bot@v1.0.0)
         uses: rajnishtiwari7/cla-bot@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
           signatures-owner: rajnishtiwari7
           signatures-repo: cla-signatures
           signatures-path: signatures/cla.json
-
           cla-document-url: https://github.com/rajnishtiwari7/cla-signatures/blob/main/CLA.md
-          # ↑ Proper CLA document ka link lagao (README nahi)
-
-          # Bots ko exempt karne ke liye (numeric GitHub IDs)
+          app-id: ${{ secrets.CLA_APP_ID }}
+          app-private-key: ${{ secrets.CLA_APP_PRIVATE_KEY }}
           allowlist: |
             41898282
             49699333
             29139614
-          # 41898282 = github-actions[bot]
-          # 49699333 = dependabot[bot]
-          # 29139614 = renovate[bot]
-
-          app-id: ${{ secrets.CLA_APP_ID }}
-          app-private-key: ${{ secrets.CLA_APP_PRIVATE_KEY }}
